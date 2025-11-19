@@ -13,11 +13,11 @@ const Docs: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
     const navigate = useNavigate();
     const { language } = useTranslation();
-    const [docs, setDocs] = useState<Doc[]>([]);
+
     const [sidebar, setSidebar] = useState<SidebarItem[]>([]);
     const [currentDoc, setCurrentDoc] = useState<Doc | null>(null);
     const [loading, setLoading] = useState(true);
-    const mountedRef = useRef(false);
+
     const lastLanguageRef = useRef(language);
 
     // Content wrapper style to ensure consistent layout
@@ -49,7 +49,7 @@ const Docs: React.FC = () => {
 
                 // Always fetch docs for the current language (could be optimized further but this is safe)
                 const loadedDocs = await getDocs(language);
-                setDocs(loadedDocs);
+
 
                 if (slug) {
                     const doc = loadedDocs.find(d => d.slug === slug);
