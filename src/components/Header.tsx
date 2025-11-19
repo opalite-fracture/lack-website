@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
+import { Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
     const { t, language, setLanguage } = useTranslation();
@@ -24,21 +26,24 @@ const Header: React.FC = () => {
             backdropFilter: 'blur(10px)',
             zIndex: 100
         }}>
-            <div style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                letterSpacing: '-0.05em'
-            }}>
-                lack<span style={{ color: 'var(--color-accent)' }}>_</span>
-            </div>
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold',
+                    letterSpacing: '-0.05em'
+                }}>
+                    lack<span style={{ color: 'var(--color-accent)' }}>_</span>
+                </div>
+            </Link>
             <nav style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
-                <a href="#features" style={{
+                <a href="/#features" style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.9rem',
                     color: 'var(--color-text-secondary)',
                     marginRight: '1rem',
-                    transition: 'color 0.2s ease'
+                    transition: 'color 0.2s ease',
+                    textDecoration: 'none'
                 }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
@@ -52,21 +57,29 @@ const Header: React.FC = () => {
                         color: 'var(--color-text-secondary)',
                         fontSize: '0.9rem',
                         padding: '0.5rem',
-                        transition: 'color 0.2s ease'
+                        transition: 'color 0.2s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        border: 'none',
+                        cursor: 'pointer'
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                    title={language === 'en' ? 'Switch to Chinese' : 'Switch to English'}
                 >
-                    {language === 'en' ? 'EN' : '中'} / {language === 'en' ? '中' : 'EN'}
+                    <Globe size={18} />
+                    <span style={{ fontSize: '0.8rem' }}>{language.toUpperCase()}</span>
                 </button>
-                <a href="#download" style={{
+                <a href="/#download" style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.9rem',
                     border: '1px solid var(--color-border)',
                     padding: '0.5rem 1rem',
                     borderRadius: '4px',
                     transition: 'all 0.2s ease',
-                    color: 'var(--color-text-primary)'
+                    color: 'var(--color-text-primary)',
+                    textDecoration: 'none'
                 }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.borderColor = 'var(--color-accent)';

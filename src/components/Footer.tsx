@@ -24,13 +24,15 @@ const Footer: React.FC = () => {
                     color: 'var(--color-text-secondary)'
                 }}>
                     &copy; {new Date().getFullYear()} lack. {t('footer.rights')}
+                    <span style={{ margin: '0 0.5rem' }}>|</span>
+                    {t('footer.contact')}
                 </div>
 
                 <div style={{
                     display: 'flex',
                     gap: 'var(--spacing-md)'
                 }}>
-                    <a href="#" style={{
+                    <a href="/docs" style={{
                         color: 'var(--color-text-secondary)',
                         fontSize: '0.9rem',
                         display: 'flex',

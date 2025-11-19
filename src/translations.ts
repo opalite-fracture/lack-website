@@ -7,7 +7,7 @@ export const translations = {
         'header.features': 'Features',
 
         // Hero
-        'hero.title': 'lack',
+        'hero.title': 'LLM Attack Construction Kit',
         'hero.subtitle': 'Professional LLM Red Teaming Toolkit',
 
         // Features
@@ -34,6 +34,7 @@ export const translations = {
 
         // Footer
         'footer.rights': 'All rights reserved.',
+        'footer.contact': 'Contact: admin@lackrt.com',
         'footer.docs': 'Documentation',
         'footer.github': 'GitHub',
         'footer.twitter': 'Twitter',
@@ -44,7 +45,7 @@ export const translations = {
         'header.features': '功能特性',
 
         // Hero
-        'hero.title': 'lack',
+        'hero.title': 'LLM Attack Construction Kit',
         'hero.subtitle': '专业的 LLM 红队攻击工具包',
 
         // Features
@@ -71,6 +72,7 @@ export const translations = {
 
         // Footer
         'footer.rights': '保留所有权利。',
+        'footer.contact': '联系我们: admin@lackrt.com',
         'footer.docs': '文档',
         'footer.github': 'GitHub',
         'footer.twitter': 'Twitter',
