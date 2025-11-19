@@ -9,6 +9,9 @@ import MouseFollowBackground from './components/MouseFollowBackground';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Docs from './pages/Docs';
 
+import UseCases from './components/UseCases';
+import WhyChooseLack from './components/WhyChooseLack';
+
 const LandingPage: React.FC = () => {
   return (
     <>
@@ -16,6 +19,8 @@ const LandingPage: React.FC = () => {
       <main>
         <Hero />
         <Features />
+        <UseCases />
+        <WhyChooseLack />
         <Download />
       </main>
       <Footer />

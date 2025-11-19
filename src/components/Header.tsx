@@ -50,6 +50,32 @@ const Header: React.FC = () => {
                 >
                     {t('header.features')}
                 </a>
+                <a href="/#use-cases" style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.9rem',
+                    color: 'var(--color-text-secondary)',
+                    marginRight: '1rem',
+                    transition: 'color 0.2s ease',
+                    textDecoration: 'none'
+                }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                >
+                    {t('header.useCases')}
+                </a>
+                <a href="/#why-choose-lack" style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.9rem',
+                    color: 'var(--color-text-secondary)',
+                    marginRight: '1rem',
+                    transition: 'color 0.2s ease',
+                    textDecoration: 'none'
+                }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                >
+                    {t('header.whyLack')}
+                </a>
                 <button
                     onClick={toggleLanguage}
                     style={{

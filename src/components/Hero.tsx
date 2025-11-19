@@ -47,10 +47,50 @@ const Hero: React.FC = () => {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '1.2rem',
                 color: 'var(--color-text-secondary)',
-                minHeight: '1.6em'
+                minHeight: '1.6em',
+                marginBottom: 'var(--spacing-lg)'
             }}>
                 {text}<span className="cursor">_</span>
             </p>
+
+            <div style={{ display: 'flex', gap: 'var(--spacing-md)' }}>
+                <a href="#download" style={{
+                    padding: '12px 32px',
+                    backgroundColor: 'var(--color-text)',
+                    color: 'var(--color-background)',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    fontWeight: 500,
+                    fontSize: '1.1rem',
+                    transition: 'opacity 0.2s ease'
+                }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+                >
+                    {t('header.getStarted')}
+                </a>
+                <a href="#features" style={{
+                    padding: '12px 32px',
+                    border: '1px solid var(--color-border)',
+                    color: 'var(--color-text)',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    fontWeight: 500,
+                    fontSize: '1.1rem',
+                    transition: 'all 0.2s ease'
+                }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = 'var(--color-text)';
+                        e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = 'var(--color-border)';
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
+                >
+                    {t('hero.viewFeatures')}
+                </a>
+            </div>
 
             <style>{`
         @keyframes blink {
