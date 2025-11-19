@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
-import { Globe } from 'lucide-react';
+import { Languages } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
@@ -94,8 +94,32 @@ const Header: React.FC = () => {
                     onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
                     title={language === 'en' ? 'Switch to Chinese' : 'Switch to English'}
                 >
-                    <Globe size={18} />
-                    <span style={{ fontSize: '0.8rem' }}>{language.toUpperCase()}</span>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        position: 'relative'
+                    }}>
+                        <Languages
+                            size={18}
+                            className="lang-icon"
+                        />
+                        <span style={{
+                            fontSize: '0.8rem',
+                            fontFamily: 'var(--font-mono)',
+                            minWidth: '2ch'
+                        }}>
+                            {language === 'en' ? 'EN' : '中'}
+                        </span>
+                    </div>
+                    <style>{`
+                        .lang-icon {
+                            transition: transform 0.3s ease;
+                        }
+                        button:hover .lang-icon {
+                            transform: rotate(180deg);
+                        }
+                    `}</style>
                 </button>
                 <a href="/#download" style={{
                     fontFamily: 'var(--font-mono)',
