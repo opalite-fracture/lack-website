@@ -85,7 +85,7 @@ const Download: React.FC = () => {
                                         paddingLeft: '1rem',
                                         borderLeft: '1px solid var(--color-border)'
                                     }}>
-                                        ├── <a href="#" className="download-link">{t('download.mac.appleSilicon')}</a>
+                                        ├── <a href={`https://dl.lackrt.com/lack/releases/v${import.meta.env.VITE_APP_VERSION}/Lack-v${import.meta.env.VITE_APP_VERSION}-arm64.dmg`} className="download-link">{t('download.mac.appleSilicon')}</a>
                                     </div>
                                     <div style={{
                                         fontFamily: 'var(--font-mono)',
@@ -95,7 +95,7 @@ const Download: React.FC = () => {
                                         paddingLeft: '1rem',
                                         borderLeft: '1px solid var(--color-border)'
                                     }}>
-                                        └── <a href="#" className="download-link">{t('download.mac.intel')}</a>
+                                        └── <a href={`https://dl.lackrt.com/lack/releases/v${import.meta.env.VITE_APP_VERSION}/Lack-v${import.meta.env.VITE_APP_VERSION}-x64.dmg`} className="download-link">{t('download.mac.intel')}</a>
                                     </div>
                                 </div>
                             )}
@@ -135,7 +135,7 @@ const Download: React.FC = () => {
                                         paddingLeft: '1rem',
                                         borderLeft: '1px solid var(--color-border)'
                                     }}>
-                                        ├── <a href="#" className="download-link">{t('download.windows.x64')}</a>
+                                        ├── <a href={`https://dl.lackrt.com/lack/releases/v${import.meta.env.VITE_APP_VERSION}/Lack-v${import.meta.env.VITE_APP_VERSION}-x64.exe`} className="download-link">{t('download.windows.x64')}</a>
                                     </div>
                                     <div style={{
                                         fontFamily: 'var(--font-mono)',
@@ -145,7 +145,7 @@ const Download: React.FC = () => {
                                         paddingLeft: '1rem',
                                         borderLeft: '1px solid var(--color-border)'
                                     }}>
-                                        └── <a href="#" className="download-link">{t('download.windows.arm64')}</a>
+                                        └── <a href={`https://dl.lackrt.com/lack/releases/v${import.meta.env.VITE_APP_VERSION}/Lack-v${import.meta.env.VITE_APP_VERSION}-arm64.exe`} className="download-link">{t('download.windows.arm64')}</a>
                                     </div>
                                 </div>
                             )}

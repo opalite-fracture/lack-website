@@ -26,6 +26,17 @@ const Footer: React.FC = () => {
                     &copy; {new Date().getFullYear()} lack. {t('footer.rights')}
                     <span style={{ margin: '0 0.5rem' }}>|</span>
                     {t('footer.contact')}
+                    <span style={{ margin: '0 0.5rem' }}>|</span>
+                    <a
+                        href={`https://github.com/lack-rt/lack/releases/tag/v${import.meta.env.VITE_APP_VERSION}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                    >
+                        v{import.meta.env.VITE_APP_VERSION} • Release Notes
+                    </a>
                 </div>
 
                 <div style={{
