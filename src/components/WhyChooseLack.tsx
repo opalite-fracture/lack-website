@@ -6,8 +6,13 @@ import whyReady from '../assets/why_ready.png';
 import whyFlexible from '../assets/why_flexible.png';
 import whyReport from '../assets/why_report.png';
 
+import whyLocalZh from '../assets/why_local_zh.png';
+import whyReadyZh from '../assets/why_ready_zh.png';
+import whyFlexibleZh from '../assets/why_flexible_zh.png';
+import whyReportZh from '../assets/why_report_zh.png';
+
 const WhyChooseLack: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, language } = useTranslation();
     const [activeImage, setActiveImage] = React.useState<string | null>(null);
     const [cursorPos, setCursorPos] = React.useState({ x: 0, y: 0 });
     const sectionRef = React.useRef<HTMLElement>(null);
@@ -20,22 +25,22 @@ const WhyChooseLack: React.FC = () => {
         {
             title: t('why.local.title'),
             description: t('why.local.desc'),
-            image: whyLocal
+            image: language === 'zh' ? whyLocalZh : whyLocal
         },
         {
             title: t('why.ready.title'),
             description: t('why.ready.desc'),
-            image: whyReady
+            image: language === 'zh' ? whyReadyZh : whyReady
         },
         {
             title: t('why.flexible.title'),
             description: t('why.flexible.desc'),
-            image: whyFlexible
+            image: language === 'zh' ? whyFlexibleZh : whyFlexible
         },
         {
             title: t('why.report.title'),
             description: t('why.report.desc'),
-            image: whyReport
+            image: language === 'zh' ? whyReportZh : whyReport
         }
     ];
 

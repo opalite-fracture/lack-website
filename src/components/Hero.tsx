@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
 
 import heroDashboard from '../assets/hero_dashboard.png';
+import heroDashboardZh from '../assets/hero_dashboard_zh.png';
 
 const Hero: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, language } = useTranslation();
     const [text, setText] = useState('');
     const [isPlaying, setIsPlaying] = useState(false);
     // We need to update the typewriter effect when language changes
@@ -146,7 +147,7 @@ const Hero: React.FC = () => {
                                 opacity: 0.5
                             }} />
                             <img
-                                src={heroDashboard}
+                                src={language === 'zh' ? heroDashboardZh : heroDashboard}
                                 alt="Lack Dashboard"
                                 style={{
                                     width: '100%',
