@@ -6,7 +6,7 @@ import Features from './components/Features';
 import Download from './components/Download';
 import Footer from './components/Footer';
 import MouseFollowBackground from './components/MouseFollowBackground';
-import { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageProvider, useTranslation } from './contexts/LanguageContext';
 import Docs from './pages/Docs';
 
 import UseCases from './components/UseCases';
@@ -23,16 +23,27 @@ const LandingPage: React.FC = () => {
         <UseCases />
         <WhyChooseLack />
         <Download />
-        <Download />
+
       </main>
       <Footer />
     </>
   );
 };
 
+const TitleUpdater: React.FC = () => {
+  const { t } = useTranslation();
+
+  React.useEffect(() => {
+    document.title = t('meta.title');
+  }, [t]);
+
+  return null;
+};
+
 function App() {
   return (
     <LanguageProvider>
+      <TitleUpdater />
       <BrowserRouter>
         <div style={{
           minHeight: '100vh',

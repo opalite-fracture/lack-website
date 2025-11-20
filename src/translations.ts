@@ -3,6 +3,7 @@ export type Language = 'en' | 'zh';
 export const translations = {
     en: {
         // Header
+        'meta.title': 'Lack - LLM Attack Construction Kit',
         'header.getStarted': 'Get Started',
         'header.features': 'Features',
         'header.useCases': 'Use Cases',
@@ -89,6 +90,7 @@ export const translations = {
     },
     zh: {
         // Header
+        'meta.title': 'Lack - LLM 攻击构建工具包',
         'header.getStarted': '开始使用',
         'header.features': '功能特性',
         'header.useCases': '应用场景',
