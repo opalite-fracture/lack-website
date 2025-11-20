@@ -69,10 +69,23 @@ export const translations = {
 
         // Footer
         'footer.rights': 'All rights reserved.',
-        'footer.contact': 'Contact: admin@lackrt.com',
+        'footer.contact': 'Contact',
         'footer.docs': 'Documentation',
         'footer.github': 'GitHub',
         'footer.twitter': 'Twitter',
+
+        // Contact Form
+        'contact.title': 'Get in Touch',
+        'contact.name': 'NAME',
+        'contact.email': 'EMAIL',
+        'contact.message': 'MESSAGE',
+        'contact.send': 'SEND MESSAGE',
+        'contact.sending': 'SENDING...',
+        'contact.sent': 'SENT',
+        'contact.error': 'TRY AGAIN',
+        'contact.successMsg': 'Thanks for reaching out! We will get back to you soon.',
+        'contact.errorMsg': 'Something went wrong. Please try again.',
+        'contact.emailAddress': 'admin@lackrt.com',
     },
     zh: {
         // Header
@@ -142,9 +155,22 @@ export const translations = {
 
         // Footer
         'footer.rights': '保留所有权利。',
-        'footer.contact': '联系我们: admin@lackrt.com',
+        'footer.contact': '联系我们',
         'footer.docs': '文档',
         'footer.github': 'GitHub',
         'footer.twitter': 'Twitter',
+
+        // Contact Form
+        'contact.title': '联系我们',
+        'contact.name': '姓名',
+        'contact.email': '邮箱',
+        'contact.message': '留言',
+        'contact.send': '发送留言',
+        'contact.sending': '发送中...',
+        'contact.sent': '已发送',
+        'contact.error': '重试',
+        'contact.successMsg': '感谢您的留言！我们会尽快回复。',
+        'contact.errorMsg': '发送失败，请重试。',
+        'contact.emailAddress': 'admin@lackrt.com',
     }
 };

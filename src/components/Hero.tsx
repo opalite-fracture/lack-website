@@ -6,6 +6,7 @@ import heroDashboard from '../assets/hero_dashboard.png';
 const Hero: React.FC = () => {
     const { t } = useTranslation();
     const [text, setText] = useState('');
+    const [isPlaying, setIsPlaying] = useState(false);
     // We need to update the typewriter effect when language changes
     const fullText = t('hero.subtitle');
 
@@ -106,7 +107,7 @@ const Hero: React.FC = () => {
                 zIndex: 1
             }}>
                 <div style={{
-                    transform: 'rotateX(20deg) scale(0.9)',
+                    transform: isPlaying ? 'none' : 'rotateX(20deg) scale(0.9)',
                     transformStyle: 'preserve-3d',
                     transition: 'transform 0.5s ease',
                     boxShadow: '0 20px 50px -10px rgba(0,0,0,0.5), 0 0 30px rgba(var(--color-accent-rgb), 0.1)',
@@ -114,36 +115,91 @@ const Hero: React.FC = () => {
                     border: '1px solid rgba(255,255,255,0.1)',
                     backgroundColor: 'rgba(0,0,0,0.5)',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    cursor: isPlaying ? 'default' : 'pointer'
                 }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'rotateX(0deg) scale(1)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'rotateX(20deg) scale(0.9)'}
+                    onMouseEnter={(e) => !isPlaying && (e.currentTarget.style.transform = 'rotateX(0deg) scale(1)')}
+                    onMouseLeave={(e) => !isPlaying && (e.currentTarget.style.transform = 'rotateX(20deg) scale(0.9)')}
+                    onClick={() => !isPlaying && setIsPlaying(true)}
                 >
-                    <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '1px',
-                        background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)',
-                        opacity: 0.5
-                    }} />
-                    <img
-                        src={heroDashboard}
-                        alt="Lack Dashboard"
-                        style={{
-                            width: '100%',
-                            height: 'auto',
-                            display: 'block',
-                            borderRadius: '12px'
-                        }}
-                    />
-                    <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)',
-                        pointerEvents: 'none'
-                    }} />
+                    {isPlaying ? (
+                        <video
+                            src={import.meta.env.VITE_HERO_VIDEO_URL || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}
+                            controls
+                            autoPlay
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                display: 'block',
+                                borderRadius: '12px'
+                            }}
+                        />
+                    ) : (
+                        <>
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                height: '1px',
+                                background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)',
+                                opacity: 0.5
+                            }} />
+                            <img
+                                src={heroDashboard}
+                                alt="Lack Dashboard"
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    display: 'block',
+                                    borderRadius: '12px'
+                                }}
+                            />
+                            {/* Play Button Overlay */}
+                            <div style={{
+                                position: 'absolute',
+                                inset: 0,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: 'rgba(0,0,0,0.2)',
+                                transition: 'background 0.3s ease'
+                            }}>
+                                <div style={{
+                                    width: '80px',
+                                    height: '80px',
+                                    borderRadius: '50%',
+                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    backdropFilter: 'blur(4px)',
+                                    border: '1px solid rgba(255,255,255,0.2)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    boxShadow: '0 0 20px rgba(0,0,0,0.3)',
+                                    transition: 'transform 0.3s ease, background-color 0.3s ease'
+                                }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = 'scale(1.1)';
+                                        e.currentTarget.style.backgroundColor = 'rgba(var(--color-accent-rgb), 0.2)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = 'scale(1)';
+                                        e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                                    }}
+                                >
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'white', marginLeft: '4px' }}>
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style={{
+                                position: 'absolute',
+                                inset: 0,
+                                background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)',
+                                pointerEvents: 'none'
+                            }} />
+                        </>
+                    )}
                 </div>
             </div>
 

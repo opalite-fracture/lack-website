@@ -44,7 +44,7 @@ export async function getDocs(lang: string = 'en'): Promise<Doc[]> {
                 const frontmatter = match[1];
                 content = match[2];
 
-                const meta: any = {};
+                const meta: Record<string, string> = {};
                 frontmatter.split('\n').forEach(line => {
                     const [key, ...values] = line.split(':');
                     if (key && values.length) {

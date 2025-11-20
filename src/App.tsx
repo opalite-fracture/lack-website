@@ -12,6 +12,7 @@ import Docs from './pages/Docs';
 import UseCases from './components/UseCases';
 import WhyChooseLack from './components/WhyChooseLack';
 
+
 const LandingPage: React.FC = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const LandingPage: React.FC = () => {
         <Features />
         <UseCases />
         <WhyChooseLack />
+        <Download />
         <Download />
       </main>
       <Footer />

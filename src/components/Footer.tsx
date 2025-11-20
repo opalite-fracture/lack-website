@@ -1,93 +1,109 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
-import { Book, Github, Twitter } from 'lucide-react';
+import { Book, Mail } from 'lucide-react';
+import Modal from './Modal';
+import ContactForm from './ContactForm';
+import { GithubIcon, TwitterIcon } from './BrandIcons';
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
+    const [isContactOpen, setIsContactOpen] = useState(false);
 
     return (
-        <footer style={{
-            padding: 'var(--spacing-lg) 0',
-            borderTop: '1px solid var(--color-border)',
-            marginTop: 'auto'
-        }}>
-            <div className="container" style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: 'var(--spacing-sm)'
+        <>
+            <footer style={{
+                padding: 'var(--spacing-lg) 0',
+                borderTop: '1px solid var(--color-border)',
+                marginTop: 'auto'
             }}>
-                <div style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.9rem',
-                    color: 'var(--color-text-secondary)'
-                }}>
-                    &copy; {new Date().getFullYear()} lack. {t('footer.rights')}
-                    <span style={{ margin: '0 0.5rem' }}>|</span>
-                    {t('footer.contact')}
-                    <span style={{ margin: '0 0.5rem' }}>|</span>
-                    <a
-                        href={`https://github.com/lack-rt/lack/releases/tag/v${import.meta.env.VITE_APP_VERSION}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
-                    >
-                        v{import.meta.env.VITE_APP_VERSION} • Release Notes
-                    </a>
-                </div>
-
-                <div style={{
+                <div className="container" style={{
                     display: 'flex',
-                    gap: 'var(--spacing-md)'
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: 'var(--spacing-sm)'
                 }}>
-                    <a href="/docs" style={{
-                        color: 'var(--color-text-secondary)',
+                    <div style={{
+                        fontFamily: 'var(--font-mono)',
                         fontSize: '0.9rem',
+                        color: 'var(--color-text-secondary)'
+                    }}>
+                        &copy; {new Date().getFullYear()} lack. {t('footer.rights')}
+                    </div>
+
+                    <div style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        transition: 'color 0.2s ease'
-                    }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
-                    >
-                        <Book size={16} />
-                        {t('footer.docs')}
-                    </a>
-                    <a href="#" style={{
-                        color: 'var(--color-text-secondary)',
-                        fontSize: '0.9rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        transition: 'color 0.2s ease'
-                    }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
-                    >
-                        <Github size={16} />
-                        {t('footer.github')}
-                    </a>
-                    <a href="#" style={{
-                        color: 'var(--color-text-secondary)',
-                        fontSize: '0.9rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        transition: 'color 0.2s ease'
-                    }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
-                    >
-                        <Twitter size={16} />
-                        {t('footer.twitter')}
-                    </a>
+                        gap: 'var(--spacing-md)'
+                    }}>
+                        <a href="/docs" style={{
+                            color: 'var(--color-text-secondary)',
+                            fontSize: '0.9rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            transition: 'color 0.2s ease'
+                        }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                        >
+                            <Book size={16} />
+                            {t('footer.docs')}
+                        </a>
+                        <a href="#" style={{
+                            color: 'var(--color-text-secondary)',
+                            fontSize: '0.9rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            transition: 'color 0.2s ease'
+                        }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                        >
+                            <GithubIcon size={16} />
+                            {t('footer.github')}
+                        </a>
+                        <a href="#" style={{
+                            color: 'var(--color-text-secondary)',
+                            fontSize: '0.9rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            transition: 'color 0.2s ease'
+                        }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                        >
+                            <TwitterIcon size={16} />
+                            {t('footer.twitter')}
+                        </a>
+                        <button
+                            onClick={() => setIsContactOpen(true)}
+                            style={{
+                                background: 'transparent',
+                                color: 'var(--color-text-secondary)',
+                                fontSize: '0.9rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                transition: 'color 0.2s ease',
+                                cursor: 'pointer',
+                                padding: 0
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
+                        >
+                            <Mail size={16} />
+                            {t('contact.title')}
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+
+            <Modal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)}>
+                <ContactForm />
+            </Modal>
+        </>
     );
 };
 

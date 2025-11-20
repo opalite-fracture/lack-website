@@ -63,7 +63,7 @@ const Docs: React.FC = () => {
         };
 
         loadData();
-    }, [slug, navigate, language]);
+    }, [slug, navigate, language, sidebar.length]);
 
     if (loading) {
         return (
@@ -97,7 +97,7 @@ const Docs: React.FC = () => {
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeHighlight]}
                     components={{
-                        code({ node, inline, className, children, ...props }: any) {
+                        code({ inline, className, children, ...props }: React.ComponentPropsWithoutRef<'code'> & { inline?: boolean }) {
                             const match = /language-(\w+)/.exec(className || '')
                             return !inline && match ? (
                                 <div style={{ position: 'relative', margin: '1.5rem 0' }}>
@@ -136,14 +136,14 @@ const Docs: React.FC = () => {
                                 </code>
                             )
                         },
-                        h1: ({ node, ...props }) => <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', marginTop: '3rem' }} {...props} />,
-                        h2: ({ node, ...props }) => <h2 style={{ fontSize: '2rem', marginBottom: '1rem', marginTop: '2.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }} {...props} />,
-                        h3: ({ node, ...props }) => <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', marginTop: '2rem' }} {...props} />,
-                        p: ({ node, ...props }) => <p style={{ marginBottom: '1.5rem', lineHeight: '1.7', fontSize: '1.1rem', color: 'var(--color-text-secondary)' }} {...props} />,
-                        ul: ({ node, ...props }) => <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', color: 'var(--color-text-secondary)' }} {...props} />,
-                        li: ({ node, ...props }) => <li style={{ marginBottom: '0.5rem' }} {...props} />,
-                        a: ({ node, ...props }) => <a style={{ color: 'var(--color-accent)', textDecoration: 'none' }} {...props} />,
-                        blockquote: ({ node, ...props }) => (
+                        h1: ({ ...props }) => <h1 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', marginTop: '3rem' }} {...props} />,
+                        h2: ({ ...props }) => <h2 style={{ fontSize: '2rem', marginBottom: '1rem', marginTop: '2.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }} {...props} />,
+                        h3: ({ ...props }) => <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', marginTop: '2rem' }} {...props} />,
+                        p: ({ ...props }) => <p style={{ marginBottom: '1.5rem', lineHeight: '1.7', fontSize: '1.1rem', color: 'var(--color-text-secondary)' }} {...props} />,
+                        ul: ({ ...props }) => <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', color: 'var(--color-text-secondary)' }} {...props} />,
+                        li: ({ ...props }) => <li style={{ marginBottom: '0.5rem' }} {...props} />,
+                        a: ({ ...props }) => <a style={{ color: 'var(--color-accent)', textDecoration: 'none' }} {...props} />,
+                        blockquote: ({ ...props }) => (
                             <blockquote style={{
                                 borderLeft: '4px solid var(--color-accent)',
                                 paddingLeft: '1rem',
